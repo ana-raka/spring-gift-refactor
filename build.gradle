@@ -32,7 +32,6 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    //testImplementation 'com.squareup.okhttp3:mockwebserver'
     testImplementation 'io.projectreactor:reactor-test:3.5.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.mockito:mockito-inline:5.2.0'

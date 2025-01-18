@@ -7,13 +7,13 @@ import gift.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
-
+@RestController
 @RequestMapping("/members")
-@Controller
 @Tag(name = "Member Management", description = "Member Management API")
 public class MemberController {
     private final MemberService memberService;
@@ -29,11 +29,13 @@ public class MemberController {
         return ResponseEntity.ok().body(memberResponseDto);
     }
 
-    @PostMapping("/login")
+
+    // 별도로 분리 필요
+    /*@PostMapping("/login")
     @Operation(summary = "기존 멤버 로그인", description = "로그인 할 때 사용하는 API")
     public ResponseEntity<?> loginMember(@RequestBody MemberDto memberDto) {
         String token = memberService.loginMember(memberDto);
         return ResponseEntity.ok().body(Collections.singletonMap("token", token));
-    }
+    }*/
 }
 

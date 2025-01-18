@@ -32,7 +32,7 @@ public class ProductController {
     @DeleteMapping("/{productId}")
     @Operation(summary = "등록된 상품을 삭제", description = "등록된 상품을 삭제할 때 사용하는 API")
     public String deleteProduct(@PathVariable Long productId){
-        productService.DeleteProduct(productId);
+        productService.deleteProduct(productId);
         return "productManage";
     }
 

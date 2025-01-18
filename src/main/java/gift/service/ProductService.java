@@ -68,7 +68,7 @@ public class ProductService {
         return productRepository.findAll(pageable);
     }
 
-    public void DeleteProduct(Long id){
+    public void deleteProduct(Long id){
         Product product = productRepository.findById(id).
                 orElseThrow(() -> new ValueNotFoundException("Product not exists in Database"));
         productRepository.delete(product);

@@ -36,7 +36,7 @@ public class Product {
 
     public void updateProduct(Product product){
         this.category = product.getCategory();
-        this.name = product.getName();
+        this.name = new ProductName(product.getName());
         this.price = product.getPrice();
         this.imageUrl = product.getImageUrl();
     }
@@ -49,8 +49,8 @@ public class Product {
         return id;
     }
 
-    public ProductName getName() {
-        return name;
+    public String getName() {
+        return name.getName();
     }
 
     public int getPrice() {

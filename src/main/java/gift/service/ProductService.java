@@ -64,8 +64,15 @@ public class ProductService {
         return productRepository.findById(id).get();
     }
 
-    public Page<Product> getAllProducts(Pageable pageable){
-        return productRepository.findAll(pageable);
+    public Page<ProductResponseDto> getAllProducts(Pageable pageable){
+        return productRepository.findAll(pageable)
+                .map(product -> new ProductResponseDto(
+                        product.getId(),
+                        product.getName(),
+                        product.getPrice(),
+                        product.getImageUrl(),
+                        product.getCategory().getId()
+                ));
     }
 
     public void deleteProduct(Long id){

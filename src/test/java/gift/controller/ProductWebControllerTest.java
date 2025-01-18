@@ -1,5 +1,6 @@
 package gift.controller;
 
+import gift.dto.productDto.ProductResponseDto;
 import gift.model.product.Product;
 import gift.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,10 +39,10 @@ class ProductWebControllerTest {
     @Test
     void showProductListPage() throws Exception {
         // Given
-        Product mockProduct1 = mock(Product.class);
-        Product mockProduct2 = mock(Product.class);
+        ProductResponseDto mockProduct1 = mock(ProductResponseDto.class);
+        ProductResponseDto mockProduct2 = mock(ProductResponseDto.class);
 
-        List<Product> mockProducts = List.of(mockProduct1, mockProduct2);
+        List<ProductResponseDto> mockProducts = List.of(mockProduct1, mockProduct2);
         when(productService.getAllProducts(any(PageRequest.class)))
                 .thenReturn(new PageImpl<>(mockProducts, PageRequest.of(0, 20), 2));
 

@@ -1,5 +1,6 @@
 package gift.controller;
 
+import gift.dto.productDto.ProductResponseDto;
 import gift.model.product.Product;
 import gift.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,7 +25,7 @@ public class ProductWebController {
     @GetMapping
     @Operation(summary = "전체 상품 목록 페이지 조회", description = "등록된 상품 전체 조회 후 View 렌더링 후 반환합니다.")
     public String showProductListPage(@RequestParam(defaultValue = "0") int page, Model model) {
-        Page<Product> productPage = productService.getAllProducts(PageRequest.of(page, 20));
+        Page<ProductResponseDto> productPage = productService.getAllProducts(PageRequest.of(page, 20));
         model.addAttribute("products", productPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", productPage.getTotalPages());

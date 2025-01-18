@@ -35,17 +35,5 @@ public class MemberController {
         String token = memberService.loginMember(memberDto);
         return ResponseEntity.ok().body(Collections.singletonMap("token", token));
     }
-
-    @GetMapping("/register")
-    @Operation(summary = "회원가입 페이지로 이동", description = "회원가입 페이지로 이동할 때 사용하는 API")
-    public String moveToRegister() {
-        return "registerMember";
-    }
-
-    @GetMapping("/login")
-    @Operation(summary = "로그인 페이지로 이동", description = "로그인 페이지로 이동할 때 사용하는 API")
-    public String moveToLogin() {
-        return "loginMember";
-    }
 }
 

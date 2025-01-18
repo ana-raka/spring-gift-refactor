@@ -23,15 +23,35 @@ public class ProductService {
     private final CategoryRepository categoryRepository;
     private final ProductMapper productMapper;
 
-
     public ProductService(ProductRepository productRepository, CategoryRepository categoryRepository, ProductMapper productMapper) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.productMapper = productMapper;
     }
 
+    public Page<ProductResponseDto> getAllProducts(Pageable pageable){
+        return productRepository.findAll(pageable)
+                .map(product -> new ProductResponseDto(
+                        product.getId(),
+                        product.getName(),
+                        product.getPrice(),
+                        product.getImageUrl(),
+                        product.getCategory().getId()
+                ));
+    }
+
+    public ProductResponseDto getProductById(Long id){
+        Product product = productRepository.findById(id).
+                orElseThrow(() -> new ValueNotFoundException("Product not exists in Database"));
+        return productMapper.toProductResponseDto(product);
+    }
+
+    public Product selectProduct(Long id) {
+        return productRepository.findById(id).get();
+    }
+
     @Transactional
-    public ProductResponseDto addNewProduct(ProductDto productDto){
+    public ProductResponseDto createProduct(ProductDto productDto){
         if (productRepository.existsByName(new ProductName(productDto.name()))) {
             throw new ValueAlreadyExistsException("ProductName already exists in Database");
         }
@@ -52,27 +72,6 @@ public class ProductService {
         Product savedProduct = productRepository.save(product);
 
         return productMapper.toProductResponseDto(savedProduct);
-    }
-
-    public ProductResponseDto getProductById(Long id){
-        Product product = productRepository.findById(id).
-                orElseThrow(() -> new ValueNotFoundException("Product not exists in Database"));
-        return productMapper.toProductResponseDto(product);
-    }
-
-    public Product selectProduct(Long id) {
-        return productRepository.findById(id).get();
-    }
-
-    public Page<ProductResponseDto> getAllProducts(Pageable pageable){
-        return productRepository.findAll(pageable)
-                .map(product -> new ProductResponseDto(
-                        product.getId(),
-                        product.getName(),
-                        product.getPrice(),
-                        product.getImageUrl(),
-                        product.getCategory().getId()
-                ));
     }
 
     public void deleteProduct(Long id){

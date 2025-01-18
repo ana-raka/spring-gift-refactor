@@ -2,7 +2,6 @@ package gift.controller;
 
 import gift.dto.productDto.ProductDto;
 import gift.dto.productDto.ProductResponseDto;
-import gift.model.product.Product;
 import gift.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,7 +24,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping()
+    @GetMapping
     @Operation(summary = "등록된 전체 상품 조회", description = "등록된 전체 상품을 조회할 때 사용하는 API")
     public ResponseEntity<Page<ProductResponseDto>> getAllProducts(@RequestParam(defaultValue = "0") int page) {
         Page<ProductResponseDto> productPage  = productService.getAllProducts(PageRequest.of(page, 20));
@@ -41,8 +40,8 @@ public class ProductController {
 
     @PostMapping
     @Operation(summary = "새로운 상품 등록", description = "상품을 등록할 때 사용하는 API")
-    public ResponseEntity<ProductResponseDto> addNewProduct(@Valid @RequestBody ProductDto productDto) {
-        ProductResponseDto productResponseDto = productService.addNewProduct(productDto);
+    public ResponseEntity<ProductResponseDto> createProduct(@Valid @RequestBody ProductDto productDto) {
+        ProductResponseDto productResponseDto = productService.createProduct(productDto);
         return ResponseEntity.ok().body(productResponseDto);
     }
 
@@ -55,8 +54,8 @@ public class ProductController {
 
     @DeleteMapping("/{productId}")
     @Operation(summary = "등록된 상품을 삭제", description = "등록된 상품을 삭제할 때 사용하는 API")
-    public String deleteProduct(@PathVariable Long productId){
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long productId){
         productService.deleteProduct(productId);
-        return "productManage";
+        return ResponseEntity.ok().build();
     }
 }

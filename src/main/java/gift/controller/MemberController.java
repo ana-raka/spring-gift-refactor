@@ -27,16 +27,16 @@ public class MemberController {
     @PostMapping
     @Operation(summary = "새로운 멤버 회원가입", description = "회원가입 할 때 사용하는 API")
     public ResponseEntity<MemberResponseDto> registerNewMember(@RequestBody MemberDto memberDto) {
-        MemberResponseDto memberResponseDto = memberService.registerNewMember(memberDto);
+        MemberResponseDto memberResponseDto = memberService.createMember(memberDto);
         return ResponseEntity.ok().body(memberResponseDto);
     }
 
     // 별도로 분리 필요
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     @Operation(summary = "기존 멤버 로그인", description = "로그인 할 때 사용하는 API")
     public ResponseEntity<?> loginMember(@RequestBody MemberDto memberDto) {
         String token = memberService.loginMember(memberDto);
         return ResponseEntity.ok().body(Collections.singletonMap("token", token));
-    }
+    }*/
 }
 

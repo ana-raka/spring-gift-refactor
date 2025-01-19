@@ -39,22 +39,22 @@ public class CategoryService {
         return categoryMapper.toCategoryResponseDto(savedCategory);
     }
 
-    public CategoryResponseDto updateCategory(Long id, CategoryDto categoryDto){
-        Category category = getCategoryById(id);
+    public CategoryResponseDto updateCategory(Long categoryId, CategoryDto categoryDto){
+        Category category = getCategoryById(categoryId);
         category.updateCategory(categoryDto);
         Category savedCategory = categoryRepository.save(category);
         return categoryMapper.toCategoryResponseDto(savedCategory);
     }
 
-    public void deleteCategory(Long id){
-        if (!categoryRepository.existsById(id)){
+    public void deleteCategory(Long categoryId){
+        if (!categoryRepository.existsById(categoryId)){
             throw new ValueNotFoundException("Category not exists in Database");
         }
-        categoryRepository.deleteById(id);
+        categoryRepository.deleteById(categoryId);
     }
 
-    private Category getCategoryById(Long id) {
-        return categoryRepository.findById(id)
+    private Category getCategoryById(Long categoryId) {
+        return categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new ValueNotFoundException("Category not exists in Database"));
     }
 }

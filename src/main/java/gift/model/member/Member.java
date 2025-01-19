@@ -1,5 +1,6 @@
 package gift.model.member;
 
+import gift.dto.memberDto.MemberDto;
 import jakarta.persistence.*;
 
 @Entity
@@ -32,6 +33,10 @@ public class Member {
             return false;
         }
         return true;
+    }
+
+    public void updateMemberInfo(String password) {
+        this.password = password;
     }
 
     public Long getId() {

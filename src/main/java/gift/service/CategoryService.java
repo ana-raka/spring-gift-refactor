@@ -14,24 +14,12 @@ import java.util.stream.Collectors;
 @Service
 public class CategoryService {
     private final CategoryRepository categoryRepository;
+
     private final CategoryMapper categoryMapper;
+
     public CategoryService(CategoryRepository categoryRepository, CategoryMapper categoryMapper){
         this.categoryRepository = categoryRepository;
         this.categoryMapper = categoryMapper;
-    }
-
-    public CategoryResponseDto addNewCategory(CategoryDto categoryDto){
-        Category category = new Category(categoryDto.getName(), categoryDto.getColor(), categoryDto.getImageUrl(), categoryDto.getDescription());
-        Category savedCategory = categoryRepository.save(category);
-        return categoryMapper.toCategoryResponseDto(savedCategory);
-    }
-
-    public CategoryResponseDto updateCategory(Long id, CategoryDto categoryDto){
-        Category category = categoryRepository.findById(id).
-                orElseThrow(() -> new ValueNotFoundException("Category not exists in Database"));
-        category.updateCategory(categoryDto);
-        Category savedCategory = categoryRepository.save(category);
-        return categoryMapper.toCategoryResponseDto(savedCategory);
     }
 
     public List<CategoryResponseDto> getCategoryList(){
@@ -46,5 +34,30 @@ public class CategoryService {
                         category.getDescription()
                 ))
                 .collect(Collectors.toList());
+    }
+
+    public CategoryResponseDto addNewCategory(CategoryDto categoryDto){
+        Category category = new Category(categoryDto.getName(), categoryDto.getColor(), categoryDto.getImageUrl(), categoryDto.getDescription());
+        Category savedCategory = categoryRepository.save(category);
+        return categoryMapper.toCategoryResponseDto(savedCategory);
+    }
+
+    public CategoryResponseDto updateCategory(Long id, CategoryDto categoryDto){
+        Category category = findCategoryById(id);
+        category.updateCategory(categoryDto);
+        Category savedCategory = categoryRepository.save(category);
+        return categoryMapper.toCategoryResponseDto(savedCategory);
+    }
+
+    public void deleteCategory(Long id){
+        if (!categoryRepository.existsById(id)){
+            throw new ValueNotFoundException("Product not exists in Database");
+        }
+        categoryRepository.deleteById(id);
+    }
+
+    private Category findCategoryById(Long id) {
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new ValueNotFoundException("Category not exists in Database"));
     }
 }

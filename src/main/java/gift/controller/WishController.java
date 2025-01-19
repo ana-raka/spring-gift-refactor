@@ -4,7 +4,7 @@ import gift.dto.memberDto.MemberDto;
 import gift.dto.productDto.ProductResponseDto;
 import gift.dto.wishDto.WishDto;
 import gift.model.member.LoginMember;
-import gift.service.WishListService;
+import gift.service.WishService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
@@ -16,23 +16,23 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Wish Management", description = "Wish Management API")
 public class WishController {
 
-    private final WishListService wishListService;
+    private final WishService wishService;
 
-    public WishController(WishListService wishListService) {
-        this.wishListService = wishListService;
+    public WishController(WishService wishService) {
+        this.wishService = wishService;
     }
 
     @PostMapping
     @Operation(summary = "장바구니에 물건 추가", description = "회원이 물건을 장바구니에 추가할 때 사용하는 API")
     public ResponseEntity<ProductResponseDto> insertWish(@LoginMember MemberDto memberDto, @RequestBody WishDto wishDto) {
-        ProductResponseDto productResponseDto = wishListService.insertWish(wishDto,memberDto);
+        ProductResponseDto productResponseDto = wishService.insertWish(wishDto,memberDto);
         return ResponseEntity.ok().body(productResponseDto);
     }
 
     @DeleteMapping("/{wishId}")
     @Operation(summary = "장바구니의 물건 삭제", description = "장바구니에 담긴 물건 삭제할 때 사용하는 API")
     public ResponseEntity<Void> removeWish(@LoginMember MemberDto memberDto, @PathVariable Long wishId) {
-        wishListService.deleteWish(wishId);
+        wishService.deleteWish(wishId);
         return ResponseEntity.ok().build();
     }
 

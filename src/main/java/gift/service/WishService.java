@@ -16,13 +16,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WishListService {
+public class WishService {
     private final WishRepository wishRepository;
     private final MemberRepository memberRepository;
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
 
-    public WishListService(WishRepository wishRepository, MemberRepository memberRepository,ProductRepository productRepository, ProductMapper productMapper){
+    public WishService(WishRepository wishRepository, MemberRepository memberRepository, ProductRepository productRepository, ProductMapper productMapper){
         this.wishRepository = wishRepository;
         this.memberRepository = memberRepository;
         this.productRepository = productRepository;

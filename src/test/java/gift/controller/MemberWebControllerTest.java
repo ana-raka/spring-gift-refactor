@@ -13,7 +13,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(MockitoExtension.class)
 class MemberWebControllerTest {
-
     private MockMvc mockMvc;
 
     @BeforeEach

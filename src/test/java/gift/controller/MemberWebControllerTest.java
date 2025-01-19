@@ -23,8 +23,8 @@ class MemberWebControllerTest {
 
     @Test
     void showRegisterPage() throws Exception {
-        // given
-        // when and then
+        //given
+        //when and then
         mockMvc.perform(get("/register"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("registerMember"));
@@ -32,8 +32,8 @@ class MemberWebControllerTest {
 
     @Test
     void showLoginPage() throws Exception {
-        // given
-        // when and then
+        //given
+        //when and then
         mockMvc.perform(get("/login"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("loginMember"));

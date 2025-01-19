@@ -38,15 +38,15 @@ class ProductWebControllerTest {
 
     @Test
     void showProductListPage() throws Exception {
-        // Given
+        //given
         ProductResponseDto mockProduct1 = mock(ProductResponseDto.class);
         ProductResponseDto mockProduct2 = mock(ProductResponseDto.class);
-
         List<ProductResponseDto> mockProducts = List.of(mockProduct1, mockProduct2);
+
         when(productService.getAllProducts(any(PageRequest.class)))
                 .thenReturn(new PageImpl<>(mockProducts, PageRequest.of(0, 20), 2));
 
-        // When & Then
+        //when & then
         mockMvc.perform(get("/products?page=0"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("productManage"))
@@ -58,14 +58,12 @@ class ProductWebControllerTest {
 
     @Test
     void showEditProductPage() throws Exception {
-        // Given
+        //given
         Long productId = 1L;
         Product mockProduct = mock(Product.class);
-
-        // given
         when(productService.selectProduct(productId)).thenReturn(mockProduct);
 
-        // When & Then
+        //when & then
         mockMvc.perform(get("/products/" + productId))
                 .andExpect(status().isOk())
                 .andExpect(view().name("editProduct"))

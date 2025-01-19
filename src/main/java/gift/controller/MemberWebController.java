@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MemberWebController {
+
     @GetMapping("/register")
     @Operation(summary = "회원가입 페이지로 이동", description = "회원가입 페이지로 이동할 때 사용하는 API")
     public String showRegisterPage() {

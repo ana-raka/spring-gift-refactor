@@ -46,14 +46,14 @@ public class ProductController {
     }
 
     @PutMapping("/{productId}")
-    @Operation(summary = "상품을 업데이트", description = "등록된 상품을 업데이트 할 때 사용하는 API")
+    @Operation(summary = "등록된 상품 정보 업데이트", description = "등록된 상품을 업데이트 할 때 사용하는 API")
     public ResponseEntity<ProductResponseDto> updateProduct(@PathVariable Long productId, @Valid @RequestBody ProductDto productDto) {
         ProductResponseDto productResponseDto = productService.updateProduct(productId, productDto);
         return ResponseEntity.ok().body(productResponseDto);
     }
 
     @DeleteMapping("/{productId}")
-    @Operation(summary = "등록된 상품을 삭제", description = "등록된 상품을 삭제할 때 사용하는 API")
+    @Operation(summary = "등록된 상품 삭제", description = "등록된 상품을 삭제할 때 사용하는 API")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long productId){
         productService.deleteProduct(productId);
         return ResponseEntity.ok().build();

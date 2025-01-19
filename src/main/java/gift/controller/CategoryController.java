@@ -10,21 +10,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/api/categories")
 @RestController
+@RequestMapping("/api/categories")
 @Tag(name = "Category Management", description = "Category Management API")
 public class CategoryController {
+
     private final CategoryService categoryService;
 
     public CategoryController(CategoryService categoryService){
         this.categoryService = categoryService;
-    }
-
-    @PostMapping
-    @Operation(summary = "새로운 카테고리 추가", description = "카테고리를 추가할 때 사용하는 API")
-    public ResponseEntity<CategoryResponseDto> addNewCategory(@RequestBody CategoryDto categoryDto) {
-        CategoryResponseDto categoryResponseDto = categoryService.addNewCategory(categoryDto);
-        return ResponseEntity.ok().body(categoryResponseDto);
     }
 
     @GetMapping
@@ -32,6 +26,13 @@ public class CategoryController {
     public ResponseEntity<List<CategoryResponseDto>> getCategoryList() {
         List<CategoryResponseDto> categoryList = categoryService.getCategoryList();
         return ResponseEntity.ok(categoryList);
+    }
+
+    @PostMapping
+    @Operation(summary = "새로운 카테고리 추가", description = "카테고리를 추가할 때 사용하는 API")
+    public ResponseEntity<CategoryResponseDto> addNewCategory(@RequestBody CategoryDto categoryDto) {
+        CategoryResponseDto categoryResponseDto = categoryService.addNewCategory(categoryDto);
+        return ResponseEntity.ok().body(categoryResponseDto);
     }
 
     @PutMapping("/{categoryId}")

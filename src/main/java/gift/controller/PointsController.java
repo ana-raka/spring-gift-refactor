@@ -28,7 +28,7 @@ public class PointsController {
         return ResponseEntity.ok().body(pointResponseDto);
     }
 
-    @PostMapping("/charge")
+    @PostMapping
     @Operation(summary = "회원 계정에 포인트 추가", description = "회원 계정에 포인트를 추가할 때 사용하는 API")
     public ResponseEntity<PointResponseDto> chargePoints(@LoginMember MemberDto memberDto, @RequestBody PointDto pointDto){
         PointResponseDto pointResponseDto = pointService.chargePoints(pointDto);

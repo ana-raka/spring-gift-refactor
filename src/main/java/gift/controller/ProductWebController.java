@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/products")
 public class ProductWebController {
+
     private final ProductService productService;
 
     public ProductWebController(ProductService productService) {

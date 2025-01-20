@@ -1,9 +1,11 @@
 package gift.dto.productDto;
 
+import java.math.BigDecimal;
+
 public class ProductResponseDtoBuilder {
     private Long id;
     private String name;
-    private Integer price;
+    private BigDecimal price;
     private String imageUrl;
     private Long categoryId;
 
@@ -17,7 +19,7 @@ public class ProductResponseDtoBuilder {
         return this;
     }
 
-    public ProductResponseDtoBuilder price(Integer price) {
+    public ProductResponseDtoBuilder price(BigDecimal price) {
         this.price = price;
         return this;
     }

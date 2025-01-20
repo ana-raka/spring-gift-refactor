@@ -1,10 +1,6 @@
-package gift.model.order;
+package gift.model;
 
-import gift.model.member.Member;
-import gift.model.product.Option;
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "orders")
@@ -18,7 +14,7 @@ public class Order {
     private Option option;
 
     @ManyToOne
-    @JoinColumn(nullable = false,name = "member_id")
+    @JoinColumn(nullable = false, name = "member_id")
     private Member member;
 
     @Column(nullable = false, columnDefinition = "integer COMMENT '주문 수량'")
@@ -27,14 +23,14 @@ public class Order {
     @Column(columnDefinition = "VARCHAR(255) COMMENT '상품 주문 관련 메시지'")
     private String message;
 
+    public Order() {}
+
     public Order(Option option,Member member,int quantity,String message){
         this.option = option;
         this.member = member;
         this.quantity = quantity;
         this.message = message;
     }
-
-    public Order() {}
 
     public Long getId() {
         return id;

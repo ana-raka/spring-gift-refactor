@@ -1,4 +1,6 @@
 package gift.dto.pointDto;
 
-public record PointResponseDto(Long memberId, Integer points) {
+import java.math.BigDecimal;
+
+public record PointResponseDto(Long memberId, BigDecimal points) {
 }

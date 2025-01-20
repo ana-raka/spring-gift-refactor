@@ -6,7 +6,7 @@ import gift.config.KakaoUserClinet;
 import gift.dto.kakaoDto.KakaoInfoDto;
 import gift.dto.kakaoDto.KakaoTokenResponseDto;
 import gift.dto.memberDto.MemberDto;
-import gift.model.member.Member;
+import gift.model.Member;
 import gift.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 

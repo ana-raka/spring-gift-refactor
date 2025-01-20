@@ -1,6 +1,8 @@
-package gift.model.product;
+package gift.model;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -18,8 +20,8 @@ public class Product {
     @Embedded
     private ProductName name;
 
-    @Column(nullable = false, columnDefinition = "integer COMMENT '상품 가격'")
-    private int price;
+    @Column(nullable = false, columnDefinition = "DECIMAL(19,4) COMMENT '상품 가격'")
+    private BigDecimal price;
 
     @Column(nullable = false , columnDefinition = "VARCHAR(255) COMMENT '상품 이미지 주소'")
     private String imageUrl;
@@ -27,7 +29,7 @@ public class Product {
     protected Product(){
     }
 
-    public Product(Category category, ProductName name, int price, String imageUrl){
+    public Product(Category category, ProductName name, BigDecimal price, String imageUrl){
         this.category = category;
         this.name = name;
         this.price = price;
@@ -53,7 +55,7 @@ public class Product {
         return name.getName();
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 

@@ -4,7 +4,7 @@ import gift.dto.categoryDto.CategoryDto;
 import gift.dto.categoryDto.CategoryMapper;
 import gift.dto.categoryDto.CategoryResponseDto;
 import gift.exception.ValueNotFoundException;
-import gift.model.product.Category;
+import gift.model.Category;
 import gift.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,14 +34,14 @@ public class CategoryService {
     }
 
     public CategoryResponseDto saveCategory(CategoryDto categoryDto){
-        Category category = new Category(categoryDto.getName(), categoryDto.getColor(), categoryDto.getImageUrl(), categoryDto.getDescription());
+        Category category = new Category(categoryDto.getName());
         Category savedCategory = categoryRepository.save(category);
         return categoryMapper.toCategoryResponseDto(savedCategory);
     }
 
     public CategoryResponseDto updateCategory(Long categoryId, CategoryDto categoryDto){
         Category category = getCategoryById(categoryId);
-        category.updateCategory(categoryDto);
+        category.updateCategory(categoryDto.getName());
         Category savedCategory = categoryRepository.save(category);
         return categoryMapper.toCategoryResponseDto(savedCategory);
     }

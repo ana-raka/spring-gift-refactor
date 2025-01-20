@@ -1,7 +1,7 @@
 package gift.controller;
 
 import gift.dto.productDto.ProductResponseDto;
-import gift.model.product.Product;
+import gift.model.Product;
 import gift.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.data.domain.Page;

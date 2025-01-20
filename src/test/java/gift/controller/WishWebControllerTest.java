@@ -2,7 +2,7 @@ package gift.controller;
 
 import gift.config.LoginMemberArgumentResolver;
 import gift.dto.memberDto.MemberDto;
-import gift.model.wish.Wish;
+import gift.model.Wish;
 import gift.service.WishService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

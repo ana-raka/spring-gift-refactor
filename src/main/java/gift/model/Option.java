@@ -1,4 +1,4 @@
-package gift.model.product;
+package gift.model;
 
 import gift.dto.optionDto.OptionDto;
 import jakarta.persistence.*;

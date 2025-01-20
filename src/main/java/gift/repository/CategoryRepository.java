@@ -1,6 +1,6 @@
 package gift.repository;
 
-import gift.model.product.Category;
+import gift.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

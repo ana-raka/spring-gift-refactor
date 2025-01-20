@@ -2,7 +2,7 @@ package gift.config;
 
 import gift.dto.kakaoDto.KakaoTokenResponseDto;
 import gift.exception.WebErrorHandler;
-import gift.model.member.KakaoProperties;
+import gift.model.KakaoProperties;
 import io.netty.handler.codec.http.HttpHeaderValues;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;

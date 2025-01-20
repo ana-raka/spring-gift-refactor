@@ -1,6 +1,6 @@
 package gift.repository;
 
-import gift.model.product.Option;
+import gift.model.Option;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

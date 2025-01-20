@@ -1,7 +1,7 @@
 package gift.repository;
 
-import gift.model.product.Product;
-import gift.model.product.ProductName;
+import gift.model.Product;
+import gift.model.ProductName;
 import jakarta.validation.Valid;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.validation.annotation.Validated;

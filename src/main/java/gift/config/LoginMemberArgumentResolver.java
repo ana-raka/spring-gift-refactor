@@ -2,8 +2,8 @@ package gift.config;
 
 import gift.dto.memberDto.MemberDto;
 import gift.jwt.JwtTokenProvider;
-import gift.model.member.LoginMember;
-import gift.model.member.Member;
+import gift.model.LoginMember;
+import gift.model.Member;
 import gift.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

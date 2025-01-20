@@ -1,6 +1,5 @@
-package gift.model.member;
+package gift.model;
 
-import gift.dto.memberDto.MemberDto;
 import jakarta.persistence.*;
 
 @Entity
@@ -26,13 +25,6 @@ public class Member {
 
     public boolean isPasswordEqual(String inputPassword) {
         return password.equals(inputPassword);
-    }
-
-    public boolean isPasswordNotEqual(String inputPassword){
-        if(password.equals(inputPassword)){
-            return false;
-        }
-        return true;
     }
 
     public void updateMemberInfo(String password) {

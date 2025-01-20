@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gift.dto.kakaoDto.KakaoInfoDto;
 import gift.exception.WebErrorHandler;
-import gift.model.member.KakaoProperties;
+import gift.model.KakaoProperties;
 import io.netty.handler.codec.http.HttpHeaderValues;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;

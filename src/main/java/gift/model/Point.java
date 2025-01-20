@@ -1,7 +1,7 @@
-package gift.model.point;
+package gift.model;
 
-import gift.model.member.Member;
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "points")
@@ -15,25 +15,31 @@ public class Point {
     private Member member;
 
     @Column(columnDefinition = "integer COMMENT '보유한 포인트'")
-    private int points;
+    private BigDecimal points;
 
     protected Point(){
     }
 
-    public Point(Member member, int points){
+    public Point(Member member, BigDecimal points){
         this.member = member;
         this.points = points;
     }
 
-    public void chargePoints(Integer addPoint){
-        this.points = points + addPoint;
+    public BigDecimal chargePoints(BigDecimal addPoint){
+        this.points = points.add(addPoint);
+        return points;
+    }
+
+    public BigDecimal subtractPoints(BigDecimal subtractPoint){
+        this.points = points.subtract(subtractPoint);
+        return points;
     }
 
     public Long getId() {
         return id;
     }
 
-    public int getPoints() {
+    public BigDecimal getPoints() {
         return points;
     }
 }

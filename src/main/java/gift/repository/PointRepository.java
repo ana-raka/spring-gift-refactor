@@ -1,6 +1,6 @@
 package gift.repository;
 
-import gift.model.point.Point;
+import gift.model.Point;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

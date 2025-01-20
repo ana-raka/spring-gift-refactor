@@ -1,6 +1,6 @@
 package gift.dto.pointDto;
 
-import gift.model.member.Member;
+import java.math.BigDecimal;
 
-public record PointDto(Long MemberId, Integer points) {
+public record PointDto(Long MemberId, BigDecimal points) {
 }

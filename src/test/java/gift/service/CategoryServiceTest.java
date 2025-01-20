@@ -4,7 +4,7 @@ import gift.dto.categoryDto.CategoryDto;
 import gift.dto.categoryDto.CategoryMapper;
 import gift.dto.categoryDto.CategoryResponseDto;
 import gift.exception.ValueNotFoundException;
-import gift.model.product.Category;
+import gift.model.Category;
 import gift.repository.CategoryRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

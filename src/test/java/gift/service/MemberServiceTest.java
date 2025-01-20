@@ -3,7 +3,7 @@ package gift.service;
 import gift.dto.memberDto.MemberDto;
 import gift.dto.memberDto.MemberResponseDto;
 import gift.exception.ValueNotFoundException;
-import gift.model.member.Member;
+import gift.model.Member;
 import gift.repository.MemberRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

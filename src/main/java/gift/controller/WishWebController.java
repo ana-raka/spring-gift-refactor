@@ -1,8 +1,8 @@
 package gift.controller;
 
 import gift.dto.memberDto.MemberDto;
-import gift.model.member.LoginMember;
-import gift.model.wish.Wish;
+import gift.model.LoginMember;
+import gift.model.Wish;
 import gift.service.WishService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.data.domain.Page;

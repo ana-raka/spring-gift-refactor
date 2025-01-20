@@ -1,4 +1,4 @@
-package gift.model.product;
+package gift.model;
 
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotEmpty;

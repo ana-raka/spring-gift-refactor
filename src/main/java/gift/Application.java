@@ -1,7 +1,7 @@
 package gift;
 
 import gift.jwt.JwtTokenProvider;
-import gift.model.member.KakaoProperties;
+import gift.model.KakaoProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

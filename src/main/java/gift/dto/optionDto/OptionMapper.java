@@ -1,6 +1,6 @@
 package gift.dto.optionDto;
 
-import gift.model.product.Option;
+import gift.model.Option;
 import org.springframework.stereotype.Component;
 
 @Component

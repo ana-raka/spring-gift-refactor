@@ -4,7 +4,7 @@ import gift.dto.memberDto.MemberDto;
 import gift.dto.memberDto.MemberResponseDto;
 import gift.exception.ValueAlreadyExistsException;
 import gift.exception.ValueNotFoundException;
-import gift.model.member.Member;
+import gift.model.Member;
 import gift.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

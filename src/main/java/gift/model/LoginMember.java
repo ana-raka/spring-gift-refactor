@@ -1,4 +1,4 @@
-package gift.model.member;
+package gift.model;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

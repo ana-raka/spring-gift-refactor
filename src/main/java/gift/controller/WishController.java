@@ -3,7 +3,7 @@ package gift.controller;
 import gift.dto.memberDto.MemberDto;
 import gift.dto.productDto.ProductResponseDto;
 import gift.dto.wishDto.WishDto;
-import gift.model.member.LoginMember;
+import gift.model.LoginMember;
 import gift.service.WishService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

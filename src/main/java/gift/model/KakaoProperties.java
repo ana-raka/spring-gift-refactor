@@ -1,4 +1,4 @@
-package gift.model.member;
+package gift.model;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

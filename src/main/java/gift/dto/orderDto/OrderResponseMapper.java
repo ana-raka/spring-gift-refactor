@@ -1,6 +1,6 @@
 package gift.dto.orderDto;
 
-import gift.model.order.Order;
+import gift.model.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

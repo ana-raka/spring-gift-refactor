@@ -78,7 +78,7 @@ class CategoryServiceTest {
 
     @Test
     @DisplayName("등록된 카테고리 정보를 업데이트 후 저장")
-    void updateCategory_whenCategoryExists() {
+    void updateCategory_WhenCategoryExists() {
         //given
         Category mockUpdatedCategory = mock(Category.class);
         Category mockExistingCategory = mock(Category.class);
@@ -118,7 +118,7 @@ class CategoryServiceTest {
 
     @Test
     @DisplayName("등록된 카테고리 삭제")
-    void deleteCategory_whenCategoryExists() {
+    void deleteCategory_WhenCategoryExists() {
         //given
         Long categoryId = 1L;
         when(categoryRepository.existsById(categoryId)).thenReturn(true);

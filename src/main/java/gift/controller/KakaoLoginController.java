@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Tag(name = "KakaoLogin", description = "KakaoLogin API")
 public class KakaoLoginController {
 
-    private final KakaoProperties kakaoProperties;
+    /*private final KakaoProperties kakaoProperties;
     private final KakaoService kakaoService;
     private final MemberService memberService;
 
@@ -69,5 +69,5 @@ public class KakaoLoginController {
             session.removeAttribute("loginMember");
         }
         return "redirect:/";
-    }
+    }*/
 }
